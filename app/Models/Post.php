@@ -18,4 +18,8 @@ class Post extends Model
     {
         return $this->hasOne(Seo::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

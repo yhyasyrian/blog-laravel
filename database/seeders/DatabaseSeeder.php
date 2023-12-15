@@ -12,15 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
-        \App\Models\User::factory(10)->create();
         $this->call([
+            RuleSeeder::class,
+            AdminSeeder::class,
             PostSeeder::class,
             SittingSeeder::class
         ]);
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
+        //     'email' => 'test@exampcomposer require php-ai/php-mlle.com',
         // ]);
     }
 }

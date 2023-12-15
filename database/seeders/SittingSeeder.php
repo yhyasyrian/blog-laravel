@@ -18,30 +18,44 @@ class SittingSeeder extends Seeder
             [
                 'key' => "title",
                 'value' => env('APP_NAME'),
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'key' => "description",
-                'value' => 'description'
+                'value' => 'description',
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'key' => "facebook",
-                'value' => ''
+                'value' => '',
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'key' => "instagram",
-                'value' => ''
+                'value' => '',
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'key' => "twitter",
-                'value' => ''
+                'value' => '',
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'key' => "github",
-                'value' => ''
+                'value' => '',
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'key' => "linkedin",
-                'value' => ''
+                'value' => '',
+                'updated_at' => now(),
+                'created_at' => now()
             ]
         ]);
     }

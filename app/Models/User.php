@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rule_id'
     ];
 
     /**
@@ -42,4 +43,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function rule()
+    {
+        return $this->belongsTo(Rule::class);
+    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
