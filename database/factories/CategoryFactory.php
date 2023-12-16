@@ -2,13 +2,15 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Seo>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class SeoFactory extends Factory
+class CategoryFactory extends Factory
 {
+    public $model = Category::class;
     /**
      * Define the model's default state.
      *
@@ -16,12 +18,11 @@ class SeoFactory extends Factory
      */
     public function definition(): array
     {
-        $type = ['article','review','product'];
         return [
-            'title' => $this->faker->unique()->realText(60),
+            'slug' => $this->faker->unique()->slug,
+            'title' => $this->faker->unique()->title,
             'description' => $this->faker->realText,
-            'type' => $type[rand(0,count($type) - 1)],
-            'image' => 'not-found.png'
+            'img' => "asset/error-404-photo.png"
         ];
     }
 }
