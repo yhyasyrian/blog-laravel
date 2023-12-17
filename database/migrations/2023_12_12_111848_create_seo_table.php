@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->on('posts')->references('id')->onDelete('cascade');
-            $table->string('title',256);
+            $table->string('slug',256);
             $table->text('description');
             $table->enum('type',['article','review','product']);
             $table->string('image',128);

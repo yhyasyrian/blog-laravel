@@ -26,4 +26,12 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function photo()
+    {
+        return $this->seo()->first('image')->image;
+    }
+    public function slug()
+    {
+        return $this->seo()->first('slug')->slug;
+    }
 }

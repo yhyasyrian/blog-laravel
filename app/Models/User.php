@@ -51,4 +51,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+    public function isAdmin():bool
+    {
+        return $this->rule()->first()->name == "admin";
+    }
+    public function isWriter():bool
+    {
+        return $this->rule()->first()->name != "user";
+    }
 }

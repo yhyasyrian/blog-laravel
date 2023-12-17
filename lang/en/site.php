@@ -9,5 +9,11 @@ return [
     |
     |
     */
-    'index' => "Home"
+    'index' => "Home",
+    'blog' => "Blog",
+    'login' => "Login",
+    'categories' => "categories",
+    'readmore' => "Read More",
+    'next' => "Next",
+    'last' => "Last"
 ];

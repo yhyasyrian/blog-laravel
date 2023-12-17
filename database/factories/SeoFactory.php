@@ -18,10 +18,11 @@ class SeoFactory extends Factory
     {
         $type = ['article','review','product'];
         return [
-            'title' => $this->faker->unique()->realText(60),
+            'slug' => $this->faker->unique()->slug,
             'description' => $this->faker->realText,
             'type' => $type[rand(0,count($type) - 1)],
-            'image' => 'not-found.png'
+            'image' => 'asset/error-404-photo.png'
+            #'image' => $this->faker->imageUrl()
         ];
     }
 }
