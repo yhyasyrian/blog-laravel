@@ -9,6 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $fillable = ['id','user_id','title','body','created_at','updated_at'];
+    protected static array $posts = [];
 
     public function comments()
     {
@@ -28,10 +29,16 @@ class Post extends Model
     }
     public function photo()
     {
-        return $this->seo()->first('image')->image;
+        if (!isset(self::$posts[$this->id])) {
+            self::$posts[$this->id] =$this->seo()->first();
+        }
+        return self::$posts[$this->id]->image;
     }
     public function slug()
     {
-        return $this->seo()->first('slug')->slug;
+        if (!isset(self::$posts[$this->id])) {
+            self::$posts[$this->id] =$this->seo()->first();
+        }
+        return self::$posts[$this->id]->slug;
     }
 }
