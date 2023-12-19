@@ -15,5 +15,8 @@ return [
     'categories' => "categories",
     'readmore' => "Read More",
     'next' => "Next",
-    'last' => "Last"
+    'last' => "Last",
+    'dashboard' => [
+        'analytics' => "Analytics"
+    ]
 ];
