@@ -8,6 +8,8 @@ export default {
         './storage/framework/views/*.php',
         '/resources/**/*.{js,ts,css}',
         './resources/views/**/*.blade.php',
+        './resources/views/*.blade.php',
+        './resources/views/**/**/*.blade.php',
     ],
 
     theme: {
@@ -21,5 +23,5 @@ export default {
         },
     },
     darkMode: "class",
-    plugins: [forms,require("tw-elements/dist/plugin.cjs")],
+    plugins: [require("tw-elements/dist/plugin.cjs")],
 };
