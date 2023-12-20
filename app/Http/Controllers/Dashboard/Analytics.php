@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Const\Links;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -42,5 +43,9 @@ class Analytics extends Controller
             $categoriesArray['count'][] = $category->count;
         }
         return $categoriesArray;
+    }
+    public static function lastTenUser()
+    {
+        return User::paginate(10);
     }
 }

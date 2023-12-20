@@ -17,6 +17,10 @@ return [
     'next' => "Next",
     'last' => "Last",
     'dashboard' => [
-        'analytics' => "Analytics"
-    ]
+        'analytics' => "Analytics",
+    ],
+    'title' => "Title",
+    'description' => "Description",
+    'user' => "Username",
+    'save' => 'Save'
 ];
