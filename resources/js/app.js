@@ -6,3 +6,10 @@ import './bootstrap';
 initTE({ Tooltip,Ripple,Input,Datatable });
 window.Alpine = Alpine;
 Alpine.start();
+addEventListener('load',() => {
+    let iconDark = document.getElementById('iconDark');
+    let darkMode = false;
+    iconDark.addEventListener('click',() => {
+        document.documentElement.classList.toggle('dark');
+    });
+});
