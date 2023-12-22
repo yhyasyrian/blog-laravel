@@ -7,9 +7,12 @@ initTE({ Tooltip,Ripple,Input,Datatable });
 window.Alpine = Alpine;
 Alpine.start();
 addEventListener('load',() => {
+    (localStorage.getItem('darkMode') == "true") ? document.documentElement.classList.add('dark') :null;
     let iconDark = document.getElementById('iconDark');
-    let darkMode = false;
+    let darkMode = localStorage.getItem('darkMode') ?? "true";
     iconDark.addEventListener('click',() => {
         document.documentElement.classList.toggle('dark');
+        darkMode = (darkMode == "true") ? "false" : "true";
+        localStorage.setItem("darkMode", darkMode);
     });
 });
