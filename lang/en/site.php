@@ -12,6 +12,7 @@ return [
     'index' => "Home",
     'blog' => "Blog",
     'login' => "Login",
+    'register' => "Register",
     'categories' => "categories",
     'readmore' => "Read More",
     'next' => "Next",
@@ -22,5 +23,14 @@ return [
     'title' => "Title",
     'description' => "Description",
     'user' => "Username",
-    'save' => 'Save'
+    'save' => 'Save',
+    'posts' => [
+        'new' => "Create Post"
+    ],
+    'category' => [
+        'new' => "New Category",
+        "slug" => "Slug",
+        'title' => "Title",
+        'description' => "Description"
+    ]
 ];

@@ -23,6 +23,9 @@
                         <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                             {{ __('site.login') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                            {{ __('site.register') }}
+                        </x-nav-link>
                     @endauth
                 </div>
             </div>
@@ -102,13 +105,24 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            @foreach(Links::navigtionUser() as $title => $link)
-                <x-responsive-nav-link :href="$link['link']" :active="$link['active']">
-                    {{$title}}
+        @auth
+            <div class="pt-2 pb-3 space-y-1">
+                @foreach(Links::navigtionUser() as $title => $link)
+                    <x-responsive-nav-link :href="$link['link']" :active="$link['active']">
+                        {{$title}}
+                    </x-responsive-nav-link>
+                @endforeach
+            </div>
+        @else
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                    {{ __('site.login') }}
                 </x-responsive-nav-link>
-            @endforeach
-        </div>
+                <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                    {{ __('site.register') }}
+                </x-responsive-nav-link>
+            </div>
+        @endauth
 
         <!-- Responsive Settings Options -->
         <!-- categories -->

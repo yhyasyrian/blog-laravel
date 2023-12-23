@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\Post::class,'index'])->name('home');
+Route::get('/', [\App\Http\Controllers\Dashboard\Post::class,'index'])->name('home');
 Route::prefix('/dashboard')->middleware('auth')->group(function (){
     Route::get('/', [\App\Http\Controllers\Dashboard\Index::class,'index'])->name('dashboard')->middleware('auth.admin');
     Route::put('/', [\App\Http\Controllers\Dashboard\Index::class,'update'])->middleware('auth.admin');
+    Route::resource('category',\App\Http\Controllers\Dashboard\Categories::class)
+        ->except(['index','show']);
+    Route::resource('post',\App\Http\Controllers\Dashboard\Post::class,['except' => 'index']);
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
