@@ -31,6 +31,8 @@ return [
         'new' => "New Category",
         "slug" => "Slug",
         'title' => "Title",
-        'description' => "Description"
+        'description' => "Description",
+        "img" => 'Image',
+        'done' => "Done, the category has created"
     ]
 ];

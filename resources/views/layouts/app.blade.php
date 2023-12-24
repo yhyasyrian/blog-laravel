@@ -37,9 +37,13 @@
             </div>
         </header>
     @endif
-
+    @if(session()->has('success'))
+        <x-alert>
+            {{session()->get('success')}}
+        </x-alert>
+    @endif
     <!-- Page Content -->
-    <main>
+    <main class="py-4">
         {{ $slot }}
     </main>
 </div>
