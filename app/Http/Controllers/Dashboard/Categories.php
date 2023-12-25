@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoriesRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class Categories extends Controller
@@ -21,7 +22,8 @@ class Categories extends Controller
      */
     public function create()
     {
-        return view('dashboard.create-category');
+        $categories = Category::all();
+        return view('dashboard.create-category',compact('categories'));
     }
 
     /**
@@ -60,8 +62,9 @@ class Categories extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return back()->with('success',__('site.category.done_remove'));
     }
 }

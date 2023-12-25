@@ -12,7 +12,19 @@
         @foreach($data as $value)
             <tr>
             @foreach($columns as $column)
-                <td>{{$value->$column}}</td>
+                @if($column == 'delete')
+                        <td>
+                            <form action="{{route($route,['category'=>$value->id])}}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <x-secondary-button data-type="danger" type="submit">
+                                    {{__('site.remove')}}
+                                </x-secondary-button>
+                            </form>
+                        </td>
+                @else
+                        <td>{{$value->$column}}</td>
+                @endif
             @endforeach
             </tr>
         @endforeach

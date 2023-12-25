@@ -17,6 +17,7 @@ return [
     'readmore' => "Read More",
     'next' => "Next",
     'last' => "Last",
+    'remove' => "Remove",
     'dashboard' => [
         'analytics' => "Analytics",
     ],
@@ -33,6 +34,7 @@ return [
         'title' => "Title",
         'description' => "Description",
         "img" => 'Image',
-        'done' => "Done, the category has created"
+        'done' => "Done, the category has created",
+        'done_remove' => "Done, the category has removed"
     ]
 ];
