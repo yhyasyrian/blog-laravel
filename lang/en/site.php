@@ -36,5 +36,15 @@ return [
         "img" => 'Image',
         'done' => "Done, the category has created",
         'done_remove' => "Done, the category has removed"
-    ]
+    ],
+    'post' => [
+        'new' => "New Post",
+        "slug" => "Slug",
+        'title' => "Title",
+        'description' => "Description",
+        'body' => "Body",
+        "img" => 'Image',
+        'done' => "Done, the post has created",
+        'done_remove' => "Done, the post has removed"
+    ],
 ];

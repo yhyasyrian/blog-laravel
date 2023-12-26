@@ -3,6 +3,7 @@ import { Tooltip, initTE,Ripple,Input,Datatable,Modal } from "tw-elements";
 import './component/CharJs.js';
 import Alpine from 'alpinejs';
 import './bootstrap';
+import 'tinymce/tinymce.min.js'
 initTE({ Tooltip,Ripple,Input,Datatable,Modal });
 window.Alpine = Alpine;
 Alpine.start();
@@ -15,4 +16,10 @@ addEventListener('load',() => {
         darkMode = (darkMode == "true") ? "false" : "true";
         localStorage.setItem("darkMode", darkMode);
     });
+    let bodyPost = document.getElementById('body');
+    if (bodyPost != "undefined") {
+        tinymce.init({
+            target: bodyPost
+        });
+    }
 });
