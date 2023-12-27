@@ -45,6 +45,11 @@ return [
         'body' => "Body",
         "img" => 'Image',
         'done' => "Done, the post has created",
-        'done_remove' => "Done, the post has removed"
+        'done_remove' => "Done, the post has removed",
+        'type' => [
+            'excellent' => 'Excellent',
+            'good' => 'Good',
+            'bad' => 'Bad',
+        ]
     ],
 ];

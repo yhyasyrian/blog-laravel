@@ -6,7 +6,7 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         "./node_modules/tw-elements/dist/js/**/*.js",
         './storage/framework/views/*.php',
-        '/resources/**/*.{js,ts,css}',
+        '/resources/**/*.{js,ts,css,scss}',
         './resources/views/**/*.blade.php',
         './resources/views/*.blade.php',
         './resources/views/**/**/*.blade.php',
@@ -23,5 +23,5 @@ export default {
         },
     },
     darkMode: "class",
-    plugins: [require("tw-elements/dist/plugin.cjs")],
+    plugins: [require("tw-elements/dist/plugin.cjs"),require('autoprefixer')],
 };

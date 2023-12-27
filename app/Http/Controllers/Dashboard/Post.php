@@ -31,7 +31,7 @@ class Post extends Controller
     public function store(PostRequest $request)
     {
         $request->createPost();
-        return back()->with('success',__('site.post.create'));
+        return back()->with('success',__('site.post.done'));
     }
 
     /**

@@ -16,11 +16,9 @@ class SeoFactory extends Factory
      */
     public function definition(): array
     {
-        $type = ['article','review','product'];
         return [
             'slug' => $this->faker->unique()->slug,
             'description' => $this->faker->realText,
-            'type' => $type[rand(0,count($type) - 1)],
             'image' => 'asset/error-404-photo.png'
             #'image' => $this->faker->imageUrl()
         ];

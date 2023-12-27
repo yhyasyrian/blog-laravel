@@ -1,10 +1,11 @@
 // TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com
-import { Tooltip, initTE,Ripple,Input,Datatable,Modal } from "tw-elements";
+import { Tooltip, initTE,Ripple,Input,Datatable,Modal,Select } from "tw-elements";
 import './component/CharJs.js';
+import './component/Post.js';
 import Alpine from 'alpinejs';
 import './bootstrap';
-import 'tinymce/tinymce.min.js'
-initTE({ Tooltip,Ripple,Input,Datatable,Modal });
+// import 'tinymce/tinymce.min.js';
+initTE({ Tooltip,Ripple,Input,Datatable,Modal,Select });
 window.Alpine = Alpine;
 Alpine.start();
 addEventListener('load',() => {
@@ -19,7 +20,11 @@ addEventListener('load',() => {
     let bodyPost = document.getElementById('body');
     if (bodyPost != "undefined") {
         tinymce.init({
-            target: bodyPost
+            target: bodyPost,
+            plugins: 'mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table advtemplate advtable advcode typography inlinecss',
+            // plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            // toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            // if you use primary plan
         });
     }
 });

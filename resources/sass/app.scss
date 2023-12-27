@@ -4,10 +4,10 @@
 @layer base {
     html {
         @apply text-[#4f4f4f];
-    }
-    html.dark {
-        @apply text-neutral-50;
-        @apply bg-neutral-800;
+        &.dark {
+            @apply text-neutral-50;
+            @apply bg-neutral-800;
+        }
     }
     [data-te-datatable-init] tr{
         @apply hover:bg-gray-200 even:bg-gray-50 dark:hover:bg-neutral-700 dark:even:bg-neutral-900;
@@ -23,6 +23,18 @@
     }
     .bad {
         @apply text-red-600 dark:text-red-400 font-bold transition hidden;
+    }
+    $typesTitle:'excellent','good','bad';
+    @each $typeTitle in $typesTitle{
+        [data-type="#{$typeTitle}"] .#{$typeTitle}{
+            @apply block;
+        }
+    }
+    $typeProgress:('excellent':'bg-success text-success-100','good':'bg-warning text-warning-100','bad':'bg-danger text-danger-100');
+    @each $key,$value in $typeProgress {
+        [data-progress="#{$key}"]{
+            @apply #{$value};
+        }
     }
 }
 
