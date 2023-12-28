@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('site.index') }}
-        </h1>
+        <h1 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">{{ __('site.index') }}</h1>
     </x-slot>
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full xl:container px-4 mx-auto mt-6 gap-6">
         @foreach($posts as $post)

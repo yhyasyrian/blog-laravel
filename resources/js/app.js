@@ -8,15 +8,15 @@ import './bootstrap';
 initTE({ Tooltip,Ripple,Input,Datatable,Modal,Select });
 window.Alpine = Alpine;
 Alpine.start();
+(localStorage.getItem('darkMode') == "true") ? document.documentElement.classList.add('dark') :null;
+let iconDark = document.getElementById('iconDark');
+let darkMode = localStorage.getItem('darkMode') ?? "true";
+iconDark.addEventListener('click',() => {
+    document.documentElement.classList.toggle('dark');
+    darkMode = (darkMode == "true") ? "false" : "true";
+    localStorage.setItem("darkMode", darkMode);
+});
 addEventListener('load',() => {
-    (localStorage.getItem('darkMode') == "true") ? document.documentElement.classList.add('dark') :null;
-    let iconDark = document.getElementById('iconDark');
-    let darkMode = localStorage.getItem('darkMode') ?? "true";
-    iconDark.addEventListener('click',() => {
-        document.documentElement.classList.toggle('dark');
-        darkMode = (darkMode == "true") ? "false" : "true";
-        localStorage.setItem("darkMode", darkMode);
-    });
     let bodyPost = document.getElementById('body');
     if (bodyPost != "undefined") {
         tinymce.init({

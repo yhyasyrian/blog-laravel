@@ -58,6 +58,13 @@
                 </div>
             @endforeach
         </div>
+        <section class="md:col-span-12">
+            @include('dashboard.table',[
+                'columns' => ['id','title','delete'],
+                'data' => $posts,
+                'route' => 'post.destroy'
+            ])
+        </section>
     </x-creates>
     <script src="https://cdn.tiny.cloud/1/{{config('app.tiny')}}/tinymce/6/tinymce.min.js" referrerpolicy="origin" async></script>
 </x-app-layout>

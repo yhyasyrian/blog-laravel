@@ -14,7 +14,7 @@
             @foreach($columns as $column)
                 @if($column == 'delete')
                         <td>
-                            <form action="{{route($route,['category'=>$value->id])}}" method="post">
+                            <form action="{{route($route,[explode('.',$route)[0]=>$value->id])}}" method="post">
                                 @method('DELETE')
                                 @csrf
                                 <x-secondary-button data-type="danger" type="submit">
@@ -23,7 +23,7 @@
                             </form>
                         </td>
                 @else
-                        <td>{{$value->$column}}</td>
+                    <td>{{$value->$column}}</td>
                 @endif
             @endforeach
             </tr>

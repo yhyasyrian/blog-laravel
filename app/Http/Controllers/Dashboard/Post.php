@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use App\Models\Post as PostModel;
 
 class Post extends Controller
 {
@@ -22,7 +23,8 @@ class Post extends Controller
      */
     public function create()
     {
-        return view('dashboard.create-post');
+        $posts = PostModel::all();
+        return view('dashboard.create-post',compact('posts'));
     }
 
     /**
@@ -61,8 +63,9 @@ class Post extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(PostModel $post)
     {
-        //
+        $post->delete();
+        return back()->with('success',__('site.post.done_remove'));
     }
 }
