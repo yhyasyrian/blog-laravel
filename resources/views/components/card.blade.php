@@ -1,18 +1,18 @@
-<div
-    {{ $attributes->merge(['class' => 'block w-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700']) }}
+<x-card-layout
+    {{ $attributes->merge(['class' => '']) }}
 >
     <a href="{{$link}}">
         <img
-            class="rounded-t-lg border-b-[1px] group-hover:"
+            class="rounded-t-lg border-b-[1px] w-full object-cover aspect-video"
             src="{{$image}}"
             alt="{{$title}}" />
     </a>
     <div class="p-6">
         <h5
-            class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 break-words">
             <a href="{{$link}}">{{$title}}</a>
         </h5>
-        <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+        <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200 break-words">
             {{$description}}
         </p>
         <a
@@ -23,4 +23,4 @@
             {{$button??__('site.readmore')}}
         </a>
     </div>
-</div>
+</x-card-layout>

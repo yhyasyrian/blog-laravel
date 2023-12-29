@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
+use App\Models\Seo;
 use Illuminate\Http\Request;
 use App\Models\Post as PostModel;
 
@@ -14,7 +15,7 @@ class Post extends Controller
      */
     public function index()
     {
-        $posts = \App\Models\Post::paginate(12); // it is bad, you should use inner join but i study model for that i use it
+        $posts = PostModel::paginate(12); // it is bad, you should use inner join but i study model for that i use it
         return view('blog.index',compact('posts'));
     }
 
@@ -23,7 +24,7 @@ class Post extends Controller
      */
     public function create()
     {
-        $posts = PostModel::all();
+        $posts = PostModel::paginate(25);
         return view('dashboard.create-post',compact('posts'));
     }
 
@@ -39,9 +40,12 @@ class Post extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $seo = Seo::where('slug','=',$slug)->firstOrFail();
+        $post = PostModel::where('id','=',$seo->post_id)->first();
+        $postsRandom = PostModel::inRandomOrder()->limit(3)->get();
+        return view('blog.post',compact('post','seo','postsRandom'));
     }
 
     /**

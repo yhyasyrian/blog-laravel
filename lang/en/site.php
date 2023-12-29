@@ -50,6 +50,8 @@ return [
             'excellent' => 'Excellent',
             'good' => 'Good',
             'bad' => 'Bad',
-        ]
+        ],
+        'random' => "random post",
+        'writer' => "this post by:"
     ],
 ];

@@ -65,6 +65,8 @@
                 'route' => 'post.destroy'
             ])
         </section>
+            <x-navigation-pagination class="md:col-span-12" :pagination="$posts" />
+        </div>
     </x-creates>
     <script src="https://cdn.tiny.cloud/1/{{config('app.tiny')}}/tinymce/6/tinymce.min.js" referrerpolicy="origin" async></script>
 </x-app-layout>

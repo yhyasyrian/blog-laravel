@@ -36,6 +36,28 @@
             @apply #{$value};
         }
     }
+    $headingTitles: ('h1':'text-4xl','h2':'text-3xl','h3':'text-2xl','h4':'text-xl','h5':'text-lg','h6':'text-base');
+    @each $key,$value in $headingTitles {
+        .post #{$key} {
+            @apply #{$value} font-bold;
+        }
+    }
+    .post table{
+        @apply min-w-full text-left text-sm font-light;
+        tr:first-of-type{
+            @apply border-b font-medium dark:border-neutral-500;
+            td,th{
+                @apply px-6 py-4;
+            }
+        }
+        tr:not(:first-of-type){
+            @apply border-b dark:border-neutral-500 hover:bg-gray-200 even:bg-gray-50 dark:hover:bg-neutral-700 dark:even:bg-neutral-900;
+            td{
+                @apply whitespace-nowrap px-6 py-4;
+            }
+            @apply bg-white dark:bg-gray-800;
+        }
+    }
 }
 
 @tailwind components;
