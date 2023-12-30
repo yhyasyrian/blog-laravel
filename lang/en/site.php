@@ -54,4 +54,9 @@ return [
         'random' => "random post",
         'writer' => "this post by:"
     ],
+    'comment' => [
+        'add' => "Add comment",
+        'comment' => "Comment",
+        'cannot' => "you cann't add comment, please sign before"
+    ]
 ];
