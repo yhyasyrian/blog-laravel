@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CommentRequest;
 use App\Http\Requests\PostRequest;
 use App\Models\Seo;
 use Illuminate\Http\Request;
@@ -71,5 +72,14 @@ class Post extends Controller
     {
         $post->delete();
         return back()->with('success',__('site.post.done_remove'));
+    }
+
+    /**
+     * add comment
+     */
+    public function comment(PostModel $post,CommentRequest $request)
+    {
+        $request->createComment($post);
+        return back()->with('success',__('site.comment.done'));
     }
 }

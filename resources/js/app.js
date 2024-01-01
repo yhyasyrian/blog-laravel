@@ -18,7 +18,7 @@ iconDark.addEventListener('click',() => {
 });
 addEventListener('load',() => {
     let bodyPost = document.getElementById('body');
-    if (bodyPost != "undefined") {
+    if (bodyPost != undefined) {
         tinymce.init({
             target: bodyPost,
             plugins: 'mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table advtemplate advtable advcode typography inlinecss',

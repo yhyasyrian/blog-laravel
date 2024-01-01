@@ -14,7 +14,17 @@ return [
     */
 
     'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
+    'name' => 'Name',
+    'email' => 'Email',
+    'password' => 'Password',
+    'password_confirmation' => 'Password Confirmation',
+    'remember_me' => 'Remember me',
+    'forgot_password' => 'Forgot your password?',
+    'paragraph_forgot_password' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
+    'login' => 'Log in',
+    'reset_password' => 'Reset Password',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'paragraph_confirm_password' => 'This is a secure area of the application. Please confirm your password before continuing.',
+    'confirm' => 'Confirm',
+    'reset_link' => 'Email Password Reset Link'
 ];

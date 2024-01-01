@@ -30,4 +30,5 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/category/{slug}')->name('category');
 Route::get('/post/{slug}',[\App\Http\Controllers\Dashboard\Post::class,'show'])->name('post');
+Route::post('/post/{post}/comment',[\App\Http\Controllers\Dashboard\Post::class,'comment'])->name('comment')->middleware('auth');
 require __DIR__.'/auth.php';

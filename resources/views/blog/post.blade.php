@@ -20,13 +20,13 @@
         <x-card-layout class="lg:col-span-3">
             <h2 class="text-center my-4 text-2xl font-extrabold">{{__('site.post.random')}}</h2>
             <div class="flex flex-col gap-y-12 mb-6">
-                @foreach($postsRandom as $post)
-                    <x-card :title="$post->title" :description="mb_substr(strip_tags($post->body),0,120).'...'" image="{{asset($post->photo())}}" :link="route('post',['slug'=>$post->slug()])" class="group max-w-[90%] mx-auto border" ></x-card>
+                @foreach($postsRandom as $posts)
+                    <x-card :title="$posts->title" :description="mb_substr(strip_tags($posts->body),0,120).'...'" image="{{asset($posts->photo())}}" :link="route('post',['slug'=>$posts->slug()])" class="group max-w-[90%] mx-auto border" ></x-card>
                 @endforeach
             </div>
         </x-card-layout>
         <x-card-layout class="lg:col-span-9 my-4 p-4">
-            <x-create-comment/>
+            <x-create-comment :postId="$post->id" />
         </x-card-layout>
     </section>
 </x-app-layout>
