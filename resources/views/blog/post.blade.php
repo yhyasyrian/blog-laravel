@@ -25,8 +25,12 @@
                 @endforeach
             </div>
         </x-card-layout>
-        <x-card-layout class="lg:col-span-9 my-4 p-4">
-            <x-create-comment :postId="$post->id" />
-        </x-card-layout>
+        <section class="lg:col-span-9 my-4 flex flex-col gap-y-8">
+            <x-card-layout class="p-4">
+                <x-create-comment :postId="$post->id" />
+            </x-card-layout>
+            <x-view-comment class="p-4" :comments="$comments" />
+            <x-navigation-pagination :pagination="$comments" />
+        </section>
     </section>
 </x-app-layout>

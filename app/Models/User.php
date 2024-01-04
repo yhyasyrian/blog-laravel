@@ -59,4 +59,8 @@ class User extends Authenticatable
     {
         return $this->rule()->first()->name != "user";
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

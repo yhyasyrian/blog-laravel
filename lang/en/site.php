@@ -57,7 +57,7 @@ return [
     'comment' => [
         'add' => "Add comment",
         'comment' => "Comment",
-        'cannot' => "you cann't add comment, please sign before",
+        'cannot' => "you cann't add comment, please login before",
         'done' => "Done, the comment has created"
     ]
 ];

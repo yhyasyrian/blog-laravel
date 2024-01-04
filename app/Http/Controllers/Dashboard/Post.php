@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\PostRequest;
+use App\Models\Comment;
 use App\Models\Seo;
 use Illuminate\Http\Request;
 use App\Models\Post as PostModel;
@@ -46,7 +47,9 @@ class Post extends Controller
         $seo = Seo::where('slug','=',$slug)->firstOrFail();
         $post = PostModel::where('id','=',$seo->post_id)->first();
         $postsRandom = PostModel::inRandomOrder()->limit(3)->get();
-        return view('blog.post',compact('post','seo','postsRandom'));
+        $comments = Comment::where('post_id','=',$post->id)
+            ->paginate(15);
+        return view('blog.post',compact('post','seo','postsRandom','comments'));
     }
 
     /**
