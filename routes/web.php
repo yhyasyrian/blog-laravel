@@ -19,7 +19,8 @@ Route::prefix('/dashboard')->middleware('auth')->group(function (){
     Route::get('/', [\App\Http\Controllers\Dashboard\Index::class,'index'])->name('dashboard')->middleware('auth.admin');
     Route::put('/', [\App\Http\Controllers\Dashboard\Index::class,'update'])->middleware('auth.admin');
     Route::resource('category',\App\Http\Controllers\Dashboard\Categories::class)
-        ->only(['create','store','destroy']);
+        ->only(['create','store','destroy'])
+        ->middleware('auth.admin');
     Route::resource('post',\App\Http\Controllers\Dashboard\Post::class)
         ->only(['create','store','destroy']);;
 });
@@ -28,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/category/{slug}')->name('category');
+Route::get('/category/{slug}',[\App\Http\Controllers\Dashboard\Categories::class,'show'])->name('category');
 Route::get('/post/{slug}',[\App\Http\Controllers\Dashboard\Post::class,'show'])->name('post');
 Route::post('/post/{post}/comment',[\App\Http\Controllers\Dashboard\Post::class,'comment'])->name('comment')->middleware('auth');
 require __DIR__.'/auth.php';

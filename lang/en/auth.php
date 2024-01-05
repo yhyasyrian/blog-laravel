@@ -26,5 +26,17 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'paragraph_confirm_password' => 'This is a secure area of the application. Please confirm your password before continuing.',
     'confirm' => 'Confirm',
-    'reset_link' => 'Email Password Reset Link'
+    'reset_link' => 'Email Password Reset Link',
+    'update_password' => 'Update Password',
+    'paragraph_update_password' => "Ensure your account is using a long, random password to stay secure.",
+    'current_password' => "Current password",
+    'new_password' => "New password",
+    'confirmation_password' => "Confirmation password",
+    'paragraph_profile_information' => 'Update your account\'s profile information and email address.',
+    'email_unverified' => 'Your email address is unverified.',
+    'click_verification' => 'Click here to re-send the verification email.',
+    'new_verification' => 'A new verification link has been sent to your email address.',
+    'delete_account' => 'Delete Account',
+    'paragraph_delete_account' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+    'delete_account_confirm' => 'Are you sure you want to delete your account?',
 ];

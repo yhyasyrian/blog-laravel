@@ -3,7 +3,7 @@
 >
     <a href="{{$link}}">
         <img
-            class="rounded-t-lg border-b-[1px] w-full object-cover aspect-video"
+            class="rounded-t-lg border-b-[1px] dark:border-gray-900 w-full object-cover aspect-video"
             src="{{$image}}"
             alt="{{$title}}" />
     </a>

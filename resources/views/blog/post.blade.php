@@ -4,7 +4,7 @@
     </x-slot>
     <section class="grid grid-cols-1 lg:grid-cols-12 w-full xl:container px-4 mx-auto mt-6 gap-6">
         <x-card-layout class="lg:col-span-9 p-6">
-            <div class="img border mb-2 h-fit relative max-w-2xl mx-auto overflow-hidden rounded-md">
+            <div class="img border dark:border-gray-900 mb-2 h-fit relative max-w-2xl mx-auto overflow-hidden rounded-md">
                 <img src="{{asset($seo->image)}}" alt="{{$post->title}}"
                 class="bord rounded-md object-cover aspect-video transition hover:scale-110 hover:rotate-3"
                 >
@@ -21,7 +21,7 @@
             <h2 class="text-center my-4 text-2xl font-extrabold">{{__('site.post.random')}}</h2>
             <div class="flex flex-col gap-y-12 mb-6">
                 @foreach($postsRandom as $posts)
-                    <x-card :title="$posts->title" :description="mb_substr(strip_tags($posts->body),0,120).'...'" image="{{asset($posts->photo())}}" :link="route('post',['slug'=>$posts->slug()])" class="group max-w-[90%] mx-auto border" ></x-card>
+                    <x-card :title="$posts->title" :description="mb_substr(strip_tags($posts->body),0,120).'...'" image="{{asset($posts->photo())}}" :link="route('post',['slug'=>$posts->slug()])" class="group max-w-[90%] mx-auto border dark:border-gray-900" ></x-card>
                 @endforeach
             </div>
         </x-card-layout>

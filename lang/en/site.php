@@ -25,6 +25,7 @@ return [
     'description' => "Description",
     'user' => "Username",
     'save' => 'Save',
+    'saved' => 'Saved',
     'posts' => [
         'new' => "Create Post"
     ],
@@ -51,13 +52,17 @@ return [
             'good' => 'Good',
             'bad' => 'Bad',
         ],
-        'random' => "random post",
-        'writer' => "this post by:"
+        'random' => 'random post',
+        'writer' => 'this post by:'
     ],
     'comment' => [
-        'add' => "Add comment",
-        'comment' => "Comment",
-        'cannot' => "you cann't add comment, please login before",
-        'done' => "Done, the comment has created"
-    ]
+        'add' => 'Add comment',
+        'comment' => 'Comment',
+        'cannot' => 'you cann\'t add comment, please login before',
+        'done' => 'Done, the comment has created'
+    ],
+    'profile' => 'Profile',
+    'profile_information' => 'Profile Information',
+    'cancel' => 'Cancel'
+
 ];

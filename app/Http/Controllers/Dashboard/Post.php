@@ -17,7 +17,7 @@ class Post extends Controller
      */
     public function index()
     {
-        $posts = PostModel::paginate(12); // it is bad, you should use inner join but i study model for that i use it
+        $posts = PostModel::orderBy('id','desc')->paginate(12); // it is bad, you should use inner join but i study model for that i use it
         return view('blog.index',compact('posts'));
     }
 

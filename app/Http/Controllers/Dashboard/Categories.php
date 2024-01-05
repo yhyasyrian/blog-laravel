@@ -30,9 +30,11 @@ class Categories extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $category = Category::where('slug','=',$slug)->first();
+        $posts = $category->posts()->paginate(15);
+        return view('blog.category',compact('posts','category'));
     }
     /**
      * Remove the specified resource from storage.

@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Update Password') }}
+            {{ __('auth.update_password') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
+            {{ __('auth.paragraph_update_password') }}
         </p>
     </header>
 
@@ -14,19 +14,19 @@
         @method('put')
 
         <div>
-            <x-text-input id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
+            <x-text-input id="update_password_current_password" :label="__('auth.current_password')" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
         </div>
 
         <div>
-            <x-text-input id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-text-input id="update_password_password" :label="__('auth.new_password')" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
         </div>
 
         <div>
-            <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-text-input id="update_password_password_confirmation" :label="__('auth.confirmation_password')" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('site.save') }}</x-primary-button>
 
             @if (session('status') === 'password-updated')
                 <p
@@ -35,7 +35,7 @@
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('Saved.') }}</p>
+                >{{ __('site.saved') }}</p>
             @endif
         </div>
     </form>
