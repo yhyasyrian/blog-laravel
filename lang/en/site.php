@@ -53,7 +53,8 @@ return [
             'bad' => 'Bad',
         ],
         'random' => 'random post',
-        'writer' => 'this post by:'
+        'writer' => 'this post by:',
+        'last_posts' => "last post"
     ],
     'comment' => [
         'add' => 'Add comment',
@@ -63,6 +64,7 @@ return [
     ],
     'profile' => 'Profile',
     'profile_information' => 'Profile Information',
-    'cancel' => 'Cancel'
-
+    'cancel' => 'Cancel',
+    'social_media' => "Social Media",
+    'copy_right' => "Copyright"
 ];

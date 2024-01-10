@@ -58,6 +58,12 @@
             @apply bg-white dark:bg-gray-800;
         }
     }
+    .link{
+        @apply relative overflow-ellipsis whitespace-nowrap overflow-hidden w-full;
+    }
+    .link::after{
+        @apply content-[""] absolute bottom-0 h-1 w-0 bg-blue-500 dark:bg-blue-800 left-1/2 -translate-x-1/2 transition-all duration-200 ease-linear hover:w-full;
+    }
 }
 
 @tailwind components;
