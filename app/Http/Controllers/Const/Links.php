@@ -20,10 +20,14 @@ class Links extends Controller
         ];
         switch (auth()->user()->rule()->value('name')){
             case 'admin':
-                $result[__('Dashboard')] = [
-                'link' => route('dashboard'),
-                'active' => request()->routeIs('dashboard')
-            ];
+                $result[__('site.dashboard.title')] = [
+                    'link' => route('dashboard'),
+                    'active' => request()->routeIs('dashboard')
+                ];
+                $result[__('site.rule.add')] = [
+                    'link' => route('add-writer'),
+                    'active' => request()->routeIs('add-writer')
+                ];
             case 'writer':
             case 'admin':
                 $result = [...$result,

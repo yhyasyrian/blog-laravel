@@ -14,15 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\Dashboard\Post::class,'index'])->name('home');
-Route::prefix('/dashboard')->middleware('auth')->group(function (){
+Route::get('/', [\App\Http\Controllers\Dashboard\PostController::class,'index'])->name('home');
+Route::prefix('/dashboard')->middleware('auth.writer.or.admin')->group(function (){
     Route::get('/', [\App\Http\Controllers\Dashboard\Index::class,'index'])->name('dashboard')->middleware('auth.admin');
     Route::put('/', [\App\Http\Controllers\Dashboard\Index::class,'update'])->middleware('auth.admin');
     Route::resource('category',\App\Http\Controllers\Dashboard\Categories::class)
         ->only(['create','store','destroy'])
         ->middleware('auth.admin');
-    Route::resource('post',\App\Http\Controllers\Dashboard\Post::class)
-        ->only(['create','store','destroy']);;
+    Route::resource('post',\App\Http\Controllers\Dashboard\PostController::class)
+        ->only(['create','store','destroy','edit','update']);;
+    Route::get('/add-writer',[\App\Http\Controllers\Dashboard\WriterController::class,'index'])
+        ->name('add-writer');
+    Route::post('/add-writer',[\App\Http\Controllers\Dashboard\WriterController::class,'index'])->name('add-writer.store');
+    Route::delete('/remove-writer/{removeWriter}',[\App\Http\Controllers\Dashboard\WriterController::class,'index'])->name('removeWriter.destroy');
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -30,6 +34,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/category/{slug}',[\App\Http\Controllers\Dashboard\Categories::class,'show'])->name('category');
-Route::get('/post/{slug}',[\App\Http\Controllers\Dashboard\Post::class,'show'])->name('post');
-Route::post('/post/{post}/comment',[\App\Http\Controllers\Dashboard\Post::class,'comment'])->name('comment')->middleware('auth');
+Route::get('/post/{slug}',[\App\Http\Controllers\Dashboard\PostController::class,'show'])->name('post');
+Route::post('/post/{post}/comment',[\App\Http\Controllers\Dashboard\PostController::class,'comment'])->name('comment')->middleware('auth');
 require __DIR__.'/auth.php';

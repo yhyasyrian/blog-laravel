@@ -5,19 +5,20 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Comment;
 use App\Models\Seo;
 use Illuminate\Http\Request;
-use App\Models\Post as PostModel;
+use App\Models\Post;
 
-class Post extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $posts = PostModel::orderBy('id','desc')->paginate(12); // it is bad, you should use inner join but i study model for that i use it
+        $posts = Post::orderBy('id','desc')->paginate(12); // it is bad, you should use inner join but i study model for that i use it
         return view('blog.index',compact('posts'));
     }
 
@@ -26,7 +27,7 @@ class Post extends Controller
      */
     public function create()
     {
-        $posts = PostModel::paginate(25);
+        $posts = Post::paginate(25);
         return view('dashboard.create-post',compact('posts'));
     }
 
@@ -45,8 +46,8 @@ class Post extends Controller
     public function show(string $slug)
     {
         $seo = Seo::where('slug','=',$slug)->firstOrFail();
-        $post = PostModel::where('id','=',$seo->post_id)->first();
-        $postsRandom = PostModel::inRandomOrder()->limit(3)->get();
+        $post = Post::where('id','=',$seo->post_id)->first();
+        $postsRandom = Post::inRandomOrder()->limit(3)->get();
         $comments = Comment::where('post_id','=',$post->id)
             ->paginate(15);
         return view('blog.post',compact('post','seo','postsRandom','comments'));
@@ -55,23 +56,26 @@ class Post extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        $posts = Post::paginate(25);
+        $currentPost = $post;
+        return view('dashboard.create-post',compact('posts','currentPost'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdatePostRequest $request, int $id)
     {
-        //
+        $request->update($id);
+        return back()->with('success',__('site.post.done_update'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostModel $post)
+    public function destroy(Post $post)
     {
         $post->delete();
         return back()->with('success',__('site.post.done_remove'));
@@ -80,7 +84,7 @@ class Post extends Controller
     /**
      * add comment
      */
-    public function comment(PostModel $post,CommentRequest $request)
+    public function comment(Post $post,CommentRequest $request)
     {
         $request->createComment($post);
         return back()->with('success',__('site.comment.done'));

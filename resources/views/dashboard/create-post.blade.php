@@ -9,22 +9,25 @@
     <x-creates>
         <div
             class="md:col-span-12 lg:col-span-9 block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 post">
-            <form enctype="multipart/form-data" method="post" action="{{route('post.store')}}">
+            <form enctype="multipart/form-data" method="post" action="{{isset($currentPost) ? route('post.update',['post'=>$currentPost->id]) : route('post.store')}}">
                 @csrf
-                <x-text-input type="text" name="slug" id="slug" placeholder="slug" :label="__('site.category.slug')" />
-                <x-text-input type="text" name="title" id="title" placeholder="title" :label="__('site.category.title')" />
-                <x-text-input type="textarea" name="description" id="description" placeholder="description" :label="__('site.category.description')" rows="3" />
+                @isset($currentPost)
+                    @method('PUT')
+                @endisset
+                <x-text-input type="text" name="slug" id="slug" :value="isset($currentPost) ? $currentPost->seo()->value('slug') : null" placeholder="slug" :label="__('site.category.slug')" />
+                <x-text-input type="text" name="title" id="title" :value="isset($currentPost) ? $currentPost->title : null" placeholder="title" :label="__('site.category.title')" />
+                <x-text-input type="textarea" name="description" :value="isset($currentPost) ? $currentPost->seo()->value('description') : null" id="description" placeholder="description" :label="__('site.category.description')" rows="3" />
                 <div class="mb-2">
                     <label
                         for="body"
                         class="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
                     >{{__('site.post.body')}}:</label
                     >
-                    <textarea id="body" name="body">{{old('body')}}</textarea>
+                    <textarea id="body" name="body">{!! $currentPost->body ?? old('body') !!}</textarea>
                 </div>
                 <select name="category_id" id="category_id" data-te-select-init>
                         @foreach(Links::categories() as $category)
-                            <option value="{{$category->id}}">{{$category->slug}}s</option>
+                            <option value="{{$category->id}}">{{$category->slug}}</option>
                         @endforeach
                 </select>
                 <x-text-input type="file"

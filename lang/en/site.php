@@ -20,6 +20,7 @@ return [
     'remove' => "Remove",
     'dashboard' => [
         'analytics' => "Analytics",
+        'title' => 'dashboard'
     ],
     'title' => "Title",
     'description' => "Description",
@@ -54,7 +55,9 @@ return [
         ],
         'random' => 'random post',
         'writer' => 'this post by:',
-        'last_posts' => "last post"
+        'last_posts' => "last post",
+        'edit' => "Edit Post",
+        'done_update' => 'Done, the post has edited'
     ],
     'comment' => [
         'add' => 'Add comment',
@@ -66,5 +69,8 @@ return [
     'profile_information' => 'Profile Information',
     'cancel' => 'Cancel',
     'social_media' => "Social Media",
-    'copy_right' => "Copyright"
+    'copy_right' => "Copyright",
+    'rule' => [
+        'add' => 'Add Writer'
+    ]
 ];

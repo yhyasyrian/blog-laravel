@@ -4,9 +4,9 @@
     </x-slot>
     <section class="grid grid-cols-1 lg:grid-cols-12 w-full xl:container px-4 mx-auto mt-6 gap-6">
         <x-card-layout class="lg:col-span-9 p-6">
-            <div class="img border dark:border-gray-900 mb-2 h-fit relative max-w-2xl mx-auto overflow-hidden rounded-md">
+            <div class="img border dark:border-gray-900 aspect-video mb-2 h-fit relative max-w-2xl mx-auto overflow-hidden rounded-md">
                 <img src="{{asset($seo->image)}}" alt="{{$post->title}}"
-                class="bord rounded-md object-cover aspect-video transition hover:scale-110 hover:rotate-3"
+                class="bord rounded-md object-cover w-full transition hover:scale-110 hover:rotate-3"
                 >
             </div>
             <div class="post">
@@ -17,14 +17,17 @@
                 <p class="text-lg">{{$post->user()->first()->name}}</p>
             </div>
         </x-card-layout>
-        <x-card-layout class="lg:col-span-3">
+        <x-card-layout class="lg:col-span-3  h-fit">
             <h2 class="text-center my-4 text-2xl font-extrabold">{{__('site.post.random')}}</h2>
-            <div class="flex flex-col gap-y-12 mb-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:flex lg:flex-col gap-y-12 mb-6">
                 @foreach($postsRandom as $posts)
                     <x-card :title="$posts->title" :description="mb_substr(strip_tags($posts->body),0,120).'...'" image="{{asset($posts->photo())}}" :link="route('post',['slug'=>$posts->slug()])" class="group max-w-[90%] mx-auto border dark:border-gray-900" ></x-card>
                 @endforeach
             </div>
         </x-card-layout>
+        @if(auth()->user()->rule()->value("name") == "admin" or auth()->user()->id == $post->user_id)
+            <a class="lg:col-span-9" href="{{route('post.edit',['post'=>$post->id])}}"><x-primary-button>{{__('site.post.edit')}}</x-primary-button></a>
+        @endif
         <section class="lg:col-span-9 my-4 flex flex-col gap-y-8">
             <x-card-layout class="p-4">
                 <x-create-comment :postId="$post->id" />
