@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Const\Links;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SEOController;
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Comment;
 use App\Models\Seo;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -18,6 +21,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        SEOController::start(
+            title: __('site.index').config('seotools.meta.'),
+            description: Links::getSitting('description')
+        );
         $posts = Post::orderBy('id','desc')->paginate(12); // it is bad, you should use inner join but i study model for that i use it
         return view('blog.index',compact('posts'));
     }

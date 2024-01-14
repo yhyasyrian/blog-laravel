@@ -25,8 +25,8 @@ Route::prefix('/dashboard')->middleware('auth.writer.or.admin')->group(function 
         ->only(['create','store','destroy','edit','update']);;
     Route::get('/add-writer',[\App\Http\Controllers\Dashboard\WriterController::class,'index'])
         ->name('add-writer');
-    Route::post('/add-writer',[\App\Http\Controllers\Dashboard\WriterController::class,'index'])->name('add-writer.store');
-    Route::delete('/remove-writer/{removeWriter}',[\App\Http\Controllers\Dashboard\WriterController::class,'index'])->name('removeWriter.destroy');
+    Route::post('/add-writer',[\App\Http\Controllers\Dashboard\WriterController::class,'store'])->name('add-writer.store');
+    Route::delete('/add-writer/{removeWriter}',[\App\Http\Controllers\Dashboard\WriterController::class,'destroy'])->name('removeWriter.destroy');
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

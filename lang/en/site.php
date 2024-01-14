@@ -71,6 +71,8 @@ return [
     'social_media' => "Social Media",
     'copy_right' => "Copyright",
     'rule' => [
-        'add' => 'Add Writer'
+        'add' => 'Add Writer',
+        'done_remove' => "Done, the user has been normal user",
+        'done_add' => "Done, the user has been writer",
     ]
 ];

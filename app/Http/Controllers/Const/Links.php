@@ -28,16 +28,16 @@ class Links extends Controller
                     'link' => route('add-writer'),
                     'active' => request()->routeIs('add-writer')
                 ];
+                $result[__('site.category.new')] = [
+                    'link' => route('category.create'),
+                    'active' => request()->routeIs('category.create')
+                ];
             case 'writer':
             case 'admin':
                 $result = [...$result,
                     __('site.posts.new') => [
                         'link' => route('post.create'),
                         'active' => request()->routeIs('post.create')
-                    ],
-                    __('site.category.new') => [
-                        'link' => route('category.create'),
-                        'active' => request()->routeIs('category.create')
                     ],
                 ];
                 break;

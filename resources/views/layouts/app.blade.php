@@ -21,6 +21,7 @@
     @endif
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {!! SEO::generate() !!}
 </head>
 <body @if(app()->getLocale() == "ar")
           class="font-[Noto_Kufi] antialiased"

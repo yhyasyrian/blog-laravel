@@ -51,5 +51,10 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
+/**
+ * register package "seotools" so it can be loaded by Laravel
+ * @link https://github.com/artesaos/seotools#2---provider
+ */
+$app->register(Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class);
 
 return $app;
