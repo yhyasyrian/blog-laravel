@@ -22,7 +22,7 @@ class PostController extends Controller
     public function index()
     {
         SEOController::start(
-            title: __('site.index').config('seotools.meta.'),
+            title: __('site.index'),
             description: Links::getSitting('description')
         );
         $posts = Post::orderBy('id','desc')->paginate(12); // it is bad, you should use inner join but i study model for that i use it
@@ -57,6 +57,13 @@ class PostController extends Controller
         $postsRandom = Post::inRandomOrder()->limit(3)->get();
         $comments = Comment::where('post_id','=',$post->id)
             ->paginate(15);
+        SEOController::start(
+            title: $post->title,
+            description: $seo->description,
+            image: asset($seo->image),
+            post: $post,
+            type: 'article'
+        );
         return view('blog.post',compact('post','seo','postsRandom','comments'));
     }
 

@@ -25,7 +25,7 @@
                 @endforeach
             </div>
         </x-card-layout>
-        @if(auth()->user()->rule()->value("name") == "admin" or auth()->user()->id == $post->user_id)
+        @if(auth()?->user()?->rule()?->value("name") == "admin" or auth()?->user()?->id == $post->user_id)
             <a class="lg:col-span-9" href="{{route('post.edit',['post'=>$post->id])}}"><x-primary-button>{{__('site.post.edit')}}</x-primary-button></a>
         @endif
         <section class="lg:col-span-9 my-4 flex flex-col gap-y-8">

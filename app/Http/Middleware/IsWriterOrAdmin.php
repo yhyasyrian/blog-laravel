@@ -15,6 +15,6 @@ class IsWriterOrAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return in_array(auth()->user()->rule()->value('name'),['admin','writer'],true) ? $next($request) : abort(403);
+        return in_array(auth()?->user()?->rule()?->value('name'),['admin','writer'],true) ? $next($request) : abort(403);
     }
 }
