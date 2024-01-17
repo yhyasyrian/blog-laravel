@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SEOController;
 use App\Http\Requests\AddWriterRequest;
 use App\Models\Rule;
 use App\Models\User;
@@ -13,6 +14,10 @@ class WriterController extends Controller
 {
     public function index()
     {
+        SEOController::start(
+            title: __('site.rule.add'),
+            index: false
+        );
         $writers = Rule::where('name','=','writer')->firstOrFail()->users()->get();
         return view('auth.add-writer',compact('writers'));
     }

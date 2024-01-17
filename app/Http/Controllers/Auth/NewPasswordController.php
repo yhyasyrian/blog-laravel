@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SEOController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,6 +20,10 @@ class NewPasswordController extends Controller
      */
     public function create(Request $request): View
     {
+        SEOController::start(
+            title:__('auth.reset_password'),
+            index: false
+        );
         return view('auth.reset-password', ['request' => $request]);
     }
 

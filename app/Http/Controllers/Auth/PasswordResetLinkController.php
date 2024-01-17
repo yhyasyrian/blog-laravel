@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SEOController;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -15,6 +16,10 @@ class PasswordResetLinkController extends Controller
      */
     public function create(): View
     {
+        SEOController::start(
+            title:__('auth.forgot'),
+            index: false
+        );
         return view('auth.forgot-password');
     }
 

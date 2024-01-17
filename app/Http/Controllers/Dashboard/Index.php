@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SEOController;
 use App\Http\Requests\SittingRequest;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Json;
@@ -17,6 +18,10 @@ class Index extends Controller
         $categories = Analytics::getAsArrayCategories();
         [$categoriesLabel,$categoriesCount] = [Json::encode($categories['label']),Json::encode($categories['count'])];
         $lastTenUser = Analytics::lastTenUser();
+        SEOController::start(
+            title: __('site.dashboard.title'),
+            index: false
+        );
         return view('dashboard.index',compact(
             'visitorsLabel','visitorsCount',
             'categoriesLabel','categoriesCount',

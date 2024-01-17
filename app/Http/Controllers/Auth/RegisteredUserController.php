@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SEOController;
 use App\Models\Rule;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -21,6 +22,10 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
+        SEOController::start(
+            title:__('auth.register'),
+            index: false
+        );
         return view('auth.register');
     }
 

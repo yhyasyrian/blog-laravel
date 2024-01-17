@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Const\Links;
+use App\Models\Category;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
@@ -15,8 +16,9 @@ class SEOController extends Controller
         string $title,
         string $description = '',
         string $image = '',
-        ?Post $post = null,
-        string $type = ''
+        Post|Category|null $post = null,
+        string $type = '',
+        bool $index = true
     )
     {
         $url = \request()->url();
@@ -32,8 +34,8 @@ class SEOController extends Controller
             ->setArticle([
                 'published_time' => Carbon::create($post?->created_at)->format('Y-m-d\T-H-i-s+00:00'),
                 'modified_time' => Carbon::create($post?->updated_at)->format('Y-m-d\T-H-i-s+00:00'),
-                'author' => $post?->user()?->value('name'),
-                'section' => $post?->category()?->value('title')
+                'author' => is_a($post,Post::class) ? $post?->user()?->value('name') : null,
+                'section' => is_a($post,Post::class) ? $post?->category()?->value('title') : $post?->title ?? null
             ])
             ;
         SEOTools::twitter()
@@ -54,7 +56,7 @@ class SEOController extends Controller
         ;
         SEOTools::metatags()
             ->addMeta('googlebot','archive')
-            ->addMeta('robots','index, follow')
+            ->addMeta('robots',$index ? 'index, follow' : 'noindex, nofollow')
             ;
     }
 }

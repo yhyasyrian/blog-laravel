@@ -34,6 +34,10 @@ class PostController extends Controller
      */
     public function create()
     {
+        SEOController::start(
+            title: __('site.post.new'),
+            index: false
+        );
         $posts = Post::paginate(25);
         return view('dashboard.create-post',compact('posts'));
     }
@@ -72,6 +76,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        SEOController::start(
+            title: __('site.post.edit'),
+            index: false
+        );
         $posts = Post::paginate(25);
         $currentPost = $post;
         return view('dashboard.create-post',compact('posts','currentPost'));

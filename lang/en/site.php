@@ -20,7 +20,7 @@ return [
     'remove' => "Remove",
     'dashboard' => [
         'analytics' => "Analytics",
-        'title' => 'dashboard'
+        'title' => 'Dashboard'
     ],
     'title' => "Title",
     'description' => "Description",

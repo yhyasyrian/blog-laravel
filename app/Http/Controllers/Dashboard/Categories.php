@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SEOController;
 use App\Http\Requests\CategoriesRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -14,6 +15,10 @@ class Categories extends Controller
      */
     public function create()
     {
+        SEOController::start(
+            title: __('site.category.new'),
+            index: false
+        );
         $categories = Category::all();
         return view('dashboard.create-category',compact('categories'));
     }
@@ -34,6 +39,13 @@ class Categories extends Controller
     {
         $category = Category::where('slug','=',$slug)->first();
         $posts = $category->posts()->paginate(15);
+        SEOController::start(
+            title:$category->title,
+            type: 'section',
+            post: $category,
+            image:asset($category->image),
+            description:$category->description
+        );
         return view('blog.category',compact('posts','category'));
     }
     /**
