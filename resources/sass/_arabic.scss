@@ -1,0 +1,8 @@
+[dir="rtl"]{
+    .group[data-te-input-focused] .group-data-\[te-input-focused\]\:shadow-\[1px_0_0_\#3b71ca\,_0_-1px_0_0_\#3b71ca\,_0_1px_0_0_\#3b71ca\]{
+        --tw-shadow: -1px 0 0 #3b71ca, 0 -1px 0 0 #3b71ca, 0 1px 0 0 #3b71ca;
+    }
+    .group[data-te-input-focused] .group-data-\[te-input-focused\]\:shadow-\[-1px_0_0_\#3b71ca\,_0_1px_0_0_\#3b71ca\,_0_-1px_0_0_\#3b71ca\]{
+        --tw-shadow: 1px 0 0 #3b71ca, 0 1px 0 0 #3b71ca, 0 -1px 0 0 #3b71ca;
+    }
+}

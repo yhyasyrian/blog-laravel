@@ -23,6 +23,7 @@ return [
     'forgot-password' => 'Forgot your password?',
     'paragraph_forgot_password' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
     'login' => 'Log in',
+    'logout' => 'Log Out',
     'register' => 'Register',
     'already_registered' => 'Already registered?',
     'reset_password' => 'Reset Password',

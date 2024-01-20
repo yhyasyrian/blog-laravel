@@ -2,6 +2,7 @@
 import { Tooltip, initTE,Ripple,Input,Datatable,Modal,Select } from "tw-elements";
 import './component/CharJs.js';
 import './component/Post.js';
+import './component/Rtl.js';
 import Alpine from 'alpinejs';
 import './bootstrap';
 // import 'tinymce/tinymce.min.js';

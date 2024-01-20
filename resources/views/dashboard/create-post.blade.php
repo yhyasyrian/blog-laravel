@@ -44,7 +44,7 @@
             @foreach(['title','description'] as $value)
                 <div class="{{$value}}">
                     <div class="flex flex-row gap-x-2">
-                        <h3 class="font-extrabold">{{lcfirst($value)}}:</h3>
+                        <h3 class="font-extrabold">{{lcfirst(__("site.post.{$value}"))}}:</h3>
                         <div data-type="bad" id="{{$value}}-type-progress">
                             <span class="excellent">{{__('site.post.type.excellent')}}</span>
                             <span class="good">{{__('site.post.type.good')}}</span>

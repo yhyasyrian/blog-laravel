@@ -22,7 +22,7 @@
             <p>{{Links::getSitting('description')}}</p>
             <hr class="my-2">
             <h3 class="text-xl font-bold capitalize my-2 pb-2 border-b">{{__('site.social_media')}}</h3>
-            <nav class="flex flex-row gap-4">
+            <nav class="flex flex-row flex-wrap gap-4">
                 @foreach(Links::socialMedia() as $key => $socialMedia)
                     @if(!empty($socialMedia['link']))
                         <a href="{{$socialMedia['link']}}" class="h-10 fill-black dark:fill-white hover:fill-primary dark:hover:fill-primary transition-all duration-100 ease-linear"><x-icon-social-media :icon="$socialMedia['social']" /></a>
