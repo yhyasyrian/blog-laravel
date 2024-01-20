@@ -23,6 +23,7 @@ class SEOController extends Controller
     {
         $url = \request()->url();
         SEOTools::metatags()->reset();
+        SEOTools::metatags()->setTitleDefault(Links::getSitting('title'));
         SEOTools::setTitle($title)
             ->setDescription($description)
             ->addImages($image)
