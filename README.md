@@ -5,6 +5,7 @@ simple example for create blog with laravel and tailwindcss, This is a training 
 git clone https://github.com/yhyasyrian/blog-laravel
 cd blog-laravel
 composer install
+npm i
 npm run build
 ```
 ## Config project
