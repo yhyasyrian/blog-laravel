@@ -5,7 +5,9 @@ simple example for create blog with laravel and tailwindcss, This is a training 
 git clone https://github.com/yhyasyrian/blog-laravel
 cd blog-laravel
 composer install
+npm i
 npm run build
+php artisan key:generate
 ```
 ## Config project
 ```bash
@@ -21,7 +23,7 @@ php artisan db:seed
 ```
 And if you don't want create test data, you should run this command:
 ```bash
-php artisan db:seed --class=PostSeeder
+php artisan db:seed --class=DefaultSeeder
 ```
 You can create cache file for improve performance:
 ```bash
