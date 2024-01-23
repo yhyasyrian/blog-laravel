@@ -22,7 +22,7 @@ php artisan db:seed
 ```
 And if you don't want create test data, you should run this command:
 ```bash
-php artisan db:seed --class=PostSeeder
+php artisan db:seed --class=DefaultSeeder
 ```
 You can create cache file for improve performance:
 ```bash
