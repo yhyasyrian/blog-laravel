@@ -46,5 +46,14 @@ addEventListener('load',() => { // after create element by tw-element
             database.parentElement.addEventListener('change',translateToArabic)
             arrowPaginationNav.parentElement.addEventListener('click',translateToArabic)
         });
+        // fix direction editor
+        if (/post\/create/.test(window.location.href))
+            var setIntervalTime = setInterval(() => {
+                let iframe = document.querySelector("iframe");
+                if (iframe) {
+                    iframe.contentWindow.document.documentElement.style.direction = "rtl";
+                    clearInterval(setIntervalTime);
+                }
+            },500);
     }
 });

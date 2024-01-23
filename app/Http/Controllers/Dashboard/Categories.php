@@ -43,7 +43,7 @@ class Categories extends Controller
             title:$category->title,
             type: 'section',
             post: $category,
-            image:asset($category->image),
+            image:asset($category->img),
             description:$category->description
         );
         return view('blog.category',compact('posts','category'));

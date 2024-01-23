@@ -6,7 +6,7 @@
         <x-card-layout class="lg:col-span-9 p-6">
             <div class="img border dark:border-gray-900 aspect-video mb-2 h-fit relative max-w-2xl mx-auto overflow-hidden rounded-md">
                 <img src="{{asset($seo->image)}}" alt="{{$post->title}}"
-                class="bord rounded-md object-cover w-full transition hover:scale-110 hover:rotate-3"
+                class="bord rounded-md object-cover w-full transition hover:scale-110 hover:rotate-3 h-full"
                 >
             </div>
             <div class="post">

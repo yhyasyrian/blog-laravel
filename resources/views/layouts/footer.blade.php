@@ -32,5 +32,5 @@
         </div>
     </div>
     <hr class="my-2">
-    <p class="text-center">{{__('site.copy_right')}} &copy; {{date('Y')}} {{Links::getSitting('title')}}</p>
+    <p class="text-center">{{__('site.copy_right')}} &copy; {{date('Y')}} <span class="font-extrabold">{{Links::getSitting('title')}}</span></p>
 </footer>
