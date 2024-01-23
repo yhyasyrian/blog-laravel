@@ -7,6 +7,7 @@ cd blog-laravel
 composer install
 npm i
 npm run build
+php artisan key:generate
 ```
 ## Config project
 ```bash
