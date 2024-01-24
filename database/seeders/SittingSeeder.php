@@ -56,6 +56,12 @@ class SittingSeeder extends Seeder
                 'value' => '',
                 'updated_at' => now(),
                 'created_at' => now()
+            ],
+            [
+                'key' => "telegram",
+                'value' => '',
+                'updated_at' => now(),
+                'created_at' => now()
             ]
         ]);
     }

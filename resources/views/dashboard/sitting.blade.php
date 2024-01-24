@@ -8,14 +8,14 @@
         @foreach(\App\Models\Sitting::data as $value)
             @switch($value)
                 @case('description')
-                <x-text-input type="textarea" :id="$value"
-                              :aria-describedby="$value"
-                              :placeholder="__('site.'.$value)"
-                              :label="__('site.'.$value)"
-                              :name="$value"
-                              rows="4"
-                              :value="\App\Models\Sitting::getSitting('description')"
-                />
+                    <x-text-input type="textarea" :id="$value"
+                                  :aria-describedby="$value"
+                                  :placeholder="__('site.'.$value)"
+                                  :label="__('site.'.$value)"
+                                  :name="$value"
+                                  rows="4"
+                                  :value="\App\Models\Sitting::getSitting('description')"
+                    />
                 @break
                 @case('title')
                     <x-text-input type="text" :id="$value"
@@ -27,7 +27,6 @@
                     />
                     @break
                 @default
-                @case('description')
                     <x-text-input type="text" :id="$value"
                                   :aria-describedby="$value"
                                   :placeholder="__($value)"

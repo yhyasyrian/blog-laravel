@@ -57,7 +57,7 @@ class Links extends Controller
     }
     public static function socialMedia()
     {
-        $list = ['facebook','github','instagram','linkedin','twitter'];
+        $list = ['facebook','github','instagram','linkedin','twitter','telegram'];
         return array_map(fn($key) => ['social'=>$key,'link'=>self::getSitting($key)],$list);
     }
     public static function getSitting(string $key)
