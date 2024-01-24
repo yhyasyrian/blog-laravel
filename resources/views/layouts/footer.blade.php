@@ -25,7 +25,16 @@
             <nav class="flex flex-row flex-wrap gap-4">
                 @foreach(Links::socialMedia() as $key => $socialMedia)
                     @if(!empty($socialMedia['link']))
-                        <a href="{{$socialMedia['link']}}" class="h-10 fill-black dark:fill-white hover:fill-primary dark:hover:fill-primary transition-all duration-100 ease-linear"><x-icon-social-media :icon="$socialMedia['social']" /></a>
+                        @switch($socialMedia['social'])
+                            @case('telegram')
+                                <a href="https://t.me/{{$socialMedia['link']}}" class="h-10 fill-black dark:fill-white hover:fill-primary dark:hover:fill-primary transition-all duration-100 ease-linear"><x-icon-social-media :icon="$socialMedia['social']" /></a>
+                                @break
+                            @case('linkedin')
+                                <a href="https://linkedin.com/in/{{$socialMedia['link']}}" class="h-10 fill-black dark:fill-white hover:fill-primary dark:hover:fill-primary transition-all duration-100 ease-linear"><x-icon-social-media :icon="$socialMedia['social']" /></a>
+                                @break
+                            @default
+                                <a href="https://{{$socialMedia['social']}}.com/{{$socialMedia['link']}}" class="h-10 fill-black dark:fill-white hover:fill-primary dark:hover:fill-primary transition-all duration-100 ease-linear"><x-icon-social-media :icon="$socialMedia['social']" /></a>
+                        @endswitch
                     @endif
                 @endforeach
             </nav>
